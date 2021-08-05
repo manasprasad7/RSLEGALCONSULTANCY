@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   
+  <script>
+    var cont=0;
+function loopSlider(){
+  var xx= setInterval(function(){
+        switch(cont)
+        {
+        case 0:{
+            $("#slider-1").fadeOut(400);
+            $("#slider-2").delay(400).fadeIn(400);
+            $("#sButton1").removeClass("bg-purple-800");
+            $("#sButton2").addClass("bg-purple-800");
+        cont=1;
+        
+        break;
+        }
+        case 1:
+        {
+        
+            $("#slider-2").fadeOut(400);
+            $("#slider-1").delay(400).fadeIn(400);
+            $("#sButton2").removeClass("bg-purple-800");
+            $("#sButton1").addClass("bg-purple-800");
+           
+        cont=0;
+        
+        break;
+        }
+        
+        
+        }},8000);
+
+}
+
+function reinitLoop(time){
+clearInterval(xx);
+setTimeout(loopSlider(),time);
+}
+
+
+
+function sliderButton1(){
+
+    $("#slider-2").fadeOut(400);
+    $("#slider-1").delay(400).fadeIn(400);
+    $("#sButton2").removeClass("bg-purple-800");
+    $("#sButton1").addClass("bg-purple-800");
+    reinitLoop(4000);
+    cont=0
+    
+    }
+    
+    function sliderButton2(){
+    $("#slider-1").fadeOut(400);
+    $("#slider-2").delay(400).fadeIn(400);
+    $("#sButton1").removeClass("bg-purple-800");
+    $("#sButton2").addClass("bg-purple-800");
+    reinitLoop(4000);
+    cont=1
+    
+    }
+
+    $(window).ready(function(){
+        $("#slider-2").hide();
+        $("#sButton1").addClass("bg-purple-800");
+        
+
+        loopSlider();
+     
+        
+    
+    
+    
+    
+    });
+
+  
+  </script>
+    <title>Responsive</title>
+</head>
+<body>
+
+     
+<div class=" popup  fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+    
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+
+   
+    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+    
+    <div  class=" inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+      <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+        <div class="sm:flex sm:items-start">
+          <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+            <!-- Heroicon name: outline/exclamation -->
+            <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+              Disclaimer
+            </h3>
+            <div class="mt-2">
+              <p class="text-sm text-gray-500">
+                  The materials contained on this website have been prepared by R& S legal Consultants and are intended for 
+                  informational purposes only and are not legal advice. Transmission of the information is not intended to create, 
+                  and receipt does not constitute, an lawyer-client relationship. While we have attempted to maintain information on 
+                  this website as accurately as possible, this information may contain errors or omissions, for which we disclaim 
+                  liability. This website contains information on legal issues and is not a substitute for legal advice from a qualified 
+                  advocate licensed in the appropriate jurisdiction. R & S Legal Consultants expressly disclaims all liability with 
+                  respect to actions taken or not taken based on any or all of the contents of this website
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+        <button type="button" class=" open w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+          Proceed
+        </button>
+        <button type="button" class=" close mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+          Back
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <header class="text-gray-600  body-font header navbar z-30">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg> -->
+            <!-- <img src="Images\awyer logo 2.jpg" alt=""> -->
+            
+            <span class="ml-3 text-xl"> <a href="index.html"> <strong>R & S LEGAL CONSULTANCY</strong> </a></span>
+          </a>
+          <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+            <a href="index.html" class="mr-5 hover:text-gray-900">HOME</a>
+            <a href="Areas.html" class="mr-5 hover:text-gray-900">AREAS OF PRACTICE</a>
+            <a href="aboutus.html" class="mr-5 hover:text-gray-900">ABOUT US</a>
+            <a href="contact_form.html" class="mr-5 hover:text-gray-900">CONTACT US</a>
+          </nav>
+          <button  class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"> <a href="contact_form.html"> CONTACT US</a>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+      
+      <div class="sliderAx h-auto">
+        <div id="slider-1" class="container mx-auto">
+          <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80)">
+         <div class="md:w-1/2">
+          
+          <p class="text-3xl font-bold">R & S</p>
+          <p class="text-2xl mb-10 leading-none">Special needs require special lawyers.</p>
+          <a href="contact_form.html" class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Contact us</a>
+          </div>  
+      </div> <!-- container -->
+        <br>
+        </div>
+    
+        <div id="slider-2" class="container mx-auto">
+          <div class="bg-cover bg-top  h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1505664063603-28e48ca204eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80)">
+         
+    <!-- <p class="font-bold text-sm uppercase">Services</p> -->
+          <p class="text-3xl font-bold">R & S</p>
+          <p class="text-2xl mb-10 leading-none">Special needs require special lawyers.</p>
+          <a href="contact_form.html" class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Contact us</a>
+           
+      </div> <!-- container -->
+        <br>
+        </div>
+      </div>
+    <div  class="flex justify-between w-12 mx-auto pb-2">
+          <button id="sButton1" onclick="sliderButton1()" class="bg-purple-400 rounded-full w-4 pb-2 " ></button>
+      <button id="sButton2" onclick="sliderButton2() " class="bg-purple-400 rounded-full w-4 p-2"></button>
+    </div>
+
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-wrap w-full mb-20">
+            <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+              <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Areas Of Practice</h1>
+              <div class="h-1 w-20 bg-indigo-500 rounded"></div>
+            </div>
+            <!-- <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.</p> -->
+          </div>
+          <div class="flex flex-wrap -m-4">
+            <div class="xl:w-1/4 md:w-1/2 p-4">
+              <div class="bg-gray-100 p-6 rounded-lg">
+                <img class="h-40 rounded w-full object-cover object-center mb-6" src="Images\civil law.jpg" alt="content">
+                <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">SUBTITLE</h3>
+                <h2 class="text-lg text-gray-900 font-medium title-font mb-4">CIVIL CASES</h2>
+                <p class="leading-relaxed text-base">...</p>
+              </div>
+            </div>
+            <div class="xl:w-1/4 md:w-1/2 p-4">
+              <div class="bg-gray-100 p-6 rounded-lg">
+                <img class="h-40 rounded w-full object-cover object-center mb-6" src="Images\criminal.jpg" alt="content">
+                <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">SUBTITLE</h3>
+                <h2 class="text-lg text-gray-900 font-medium title-font mb-4">CRIMINAL CASES</h2>
+                <p class="leading-relaxed text-base">...</p>
+              </div>
+            </div>
+            <div class="xl:w-1/4 md:w-1/2 p-4">
+              <div class="bg-gray-100 p-6 rounded-lg">
+                <img class="h-40 rounded w-full object-cover object-center mb-6" src="Images\family.jpg" alt="content">
+                <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">SUBTITLE</h3>
+                <h2 class="text-lg text-gray-900 font-medium title-font mb-4">FAMILY LAW</h2>
+                <p class="leading-relaxed text-base">...</p>
+              </div>
+            </div>
+            <div class="xl:w-1/4 md:w-1/2 p-4">
+              <div class="bg-gray-100 p-6 rounded-lg">
+                <img class="h-40 rounded w-full object-cover object-center mb-6" src="Images\real.jpg" alt="content">
+                <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">SUBTITLE</h3>
+                <h2 class="text-lg text-gray-900 font-medium title-font mb-4">REAL ESTATE LAW</h2>
+                <p class="leading-relaxed text-base">...</p>
+              </div>
+            </div>
+          </div>
+          <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"> <a href="Areas.html"> CLICK HERE TO KNOW MORE</a></button>
+        </div>
+      </section>
+      <div class="bg-local">
+        <img class="" style="position: absolute;" src="Images\State.png" >
+        
+      <section class="text-gray-600 body-font" >
+        
+        <div class="container px-5 py-24 mx-auto">
+          
+            <div class="text-center mb-20">
+              
+                <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4 relative">States Of Practice</h1>
+                
+                <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-black relative">These are some states where we practice</p>
+                <div class="flex mt-6 justify-center">
+                  <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
+                </div>
+              </div>
+          <div class="flex flex-wrap -m-4">
+
+            <div class="p-4 lg:w-1/2">
+              <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
+                <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">States Of Practice</h2>
+                <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Maharashtra</h1>
+                <p class="leading-relaxed mb-3">Right from the Gateway of India in Mumbai to the Aga Khan Place in Pune, the state has many historical monuments</p>
+              </div>
+            </div>
+
+            <div class="p-4 lg:w-1/2">
+              <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
+                <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">States Of Practice</h2>
+                <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Delhi</h1>
+                <p class="leading-relaxed mb-3">A walled city on the River Jumna in north central India, which was made the capital of the Mogul empire in 1638 by Shah Jahan</p>
+              </div>
+            </div>
+
+            <div class="p-4 lg:w-1/2">
+              <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
+                <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">States Of Practice</h2>
+                <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Jharkhand</h1>
+                <p class="leading-relaxed mb-3">In 2000 a campaign led by the BJP for a separate state culminated with the passage of the Bihar Reorganisation Act, creating Jharkhand as a new Indian state.</p>
+              </div>
+            </div>
+
+            <div class="p-4 lg:w-1/2">
+                <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
+                  <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">States Of Practice</h2>
+                  <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Karnataka</h1>
+                  <p class="leading-relaxed mb-3">The state is  one of the oldest regions in India and is popular for its age-old culture, traditions and heritage</p>
+                </div>
+              </div>
+
+          </div>
+        </div>
+      </div>
+      </section>
+     
+<!-- <br><br><br> <br><br><br><br><br><br> -->
+      <section class="text-gray-600 body-font bg-white" style="position: relative;">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-col text-center w-full mb-20">
+            <h1 class="text-2xl font-medium title-font mb-4 text-gray-900 tracking-widest">OUR TEAM</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-black">R & S LEGAL CONSULTANCY</p>
+          </div>
+          <div class="flex flex-wrap -m-4">
+            <div class="p-4 lg:w-1/2">
+              <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="Images\somya index.png">
+                <div class="flex-grow sm:pl-8">
+                  <h2 class="title-font font-medium text-lg text-gray-900">Somya Sinha</h2>
+                  <h3 class="text-gray-500 mb-3">Advocate</h3>
+                  <p class="mb-4"> <strong> B.S.L, LL.B</strong> from I.L.S Law College, Pune University <p> <strong> LL.M </strong>from I.C.F.A.I University, Hyderabad</p> </p>
+                  <br>
+                  <span class="inline-flex">
+                    <!-- <a class="text-gray-500">
+                      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                      </svg>
+                    </a> -->
+                    <a href="https://twitter.com/rslegalconsult1" class="ml-2 text-gray-500">
+                      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                      </svg>
+                    </a>
+                    <a href="mailto:rssconsultancy@gmail.com" class="ml-2 text-gray-500">
+                      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                      </svg>
+                    </a>
+                  </span>
+                  
+                  <button class="flex mx-auto mt-6 text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-600 rounded"><a href="somya.html">Know More</a></button>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 lg:w-1/2">
+              <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="Images\Richa.png">
+                <div class="flex-grow sm:pl-8">
+                  <h2 class="title-font font-medium text-lg text-gray-900">Richa Sahay</h2>
+                  <h3 class="text-gray-500 mb-3">Advocate</h3>
+                  <p class="mb-4"> <strong> LL.B</strong> from I.L.S Law College, Pune University<p class="mb-4"> <strong> LL.M</strong> from National Law School of India University, Bangalore</p> <p class="mb-4"> <strong> Diploma in Securities Laws</strong> from Government Law College, Mumbai </p> </p>
+                  <br>
+                  <span class="inline-flex">
+                    <!-- <a class="text-gray-500">
+                      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                      </svg>
+                    </a> -->
+                    <a href="https://twitter.com/rslegalconsult1" class="ml-2 text-gray-500">
+                      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                      </svg>
+                    </a>
+                    <a href="mailto:rssconsultancy@gmail.com" class="ml-2 text-gray-500">
+                      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                      </svg>
+                    </a>
+                  </span>
+                  <button class="flex mx-auto mt-6 text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-600 rounded"> <a href="Richa.html"> Know More </a></button>
+                </div>
+              </div>
+            </div>
+        
+          </div>
+        </div>
+      </section>
+      
+      <footer class="text-gray-600 bg-blue-400 body-font">
+        <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+          <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg> -->
+            <img src="Images\awyer_logo_2-removebg-preview.png" alt="">
+            <!-- <span class="ml-3 text-xl">R & S LEGAL CONSULTANCY</span> -->
+          </a>
+          <p class="text-sm text-gray-900 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2021 —
+            <a href="https://twitter.com/rslegalconsult1" class="text-gray-900 ml-1" rel="noopener noreferrer" target="_blank">@R & S LEGAL CONSULTANCY</a>
+          </p>
+          <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+            <!-- <a class="text-gray-900">
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+              </svg>
+            </a> -->
+            <a href="https://twitter.com/rslegalconsult1" class="ml-3 text-gray-900">
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+              </svg>
+            </a>
+            <a href="rsslegalconsultancy@gmail.com" class="ml-3 text-gray-900">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+              </svg>
+            </a>
+            <!-- <a class="ml-3 text-gray-900">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+              </svg>
+            </a> -->
+            <!-- <a class="ml-3 text-gray-900">
+              <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                <circle cx="4" cy="4" r="2" stroke="none"></circle>
+              </svg>
+            </a> -->
+          </span>
+        </div>
+      </footer>
+
+<script src="popup.js"></script>
+</body>
+</html>
